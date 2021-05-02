@@ -31,6 +31,9 @@ function configure() {
    done
 }
 
+# --------------------------------------------------------
+# HADOOP
+# --------------------------------------------------------
 configure /etc/hadoop/core-site.xml core CORE_CONF
 configure /etc/hadoop/hdfs-site.xml hdfs HDFS_CONF
 configure /etc/hadoop/yarn-site.xml yarn YARN_CONF
@@ -57,5 +60,16 @@ if [ "$MULTIHOMED_NETWORK" = "1" ]; then
     addProperty /etc/hadoop/mapred-site.xml yarn.nodemanager.bind-host 0.0.0.0
 fi
 
+# --------------------------------------------------------
+# HIVE
+# --------------------------------------------------------
+configure /opt/hive/conf/hive-site.xml hive HIVE_SITE_CONF
+
+# --------------------------------------------------------
+# SPARK
+# --------------------------------------------------------
+configure $SPARK_HOME/conf/core-site.xml core CORE_CONF
+configure $SPARK_HOME/conf/yarn-site.xml yarn YARN_CONF
+configure $SPARK_HOME/conf/hive-site.xml hive HIVE_SITE_CONF
 
 exec $@
