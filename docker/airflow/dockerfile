@@ -1,4 +1,4 @@
-# VERSION 2.0.2
+# VERSION 1.10.14
 # AUTHOR: Pathairush S.
 # DESCRIPTION: Airflow with sqoop, spark, hive components
 # BUILD: docker build --rm -t ppatcoding/docker-airflow .
